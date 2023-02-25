@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div class="content"></div>
+
+  <script src="data.js"></script>
+  <script>
+  dataInfo = JSON.parse(dataInfo);
+    
+    const headElem = document.createElement('h1');
+    headElem.textContent = dataInfo.attributes.canonicalTitle;
+    const contentElement = document.querySelector(".content");
+    contentElement.appendChild(headElem);
+
+    const imgElement = document.createElement('img');
+    imgElement.src = dataInfo.posterImage.original;
+    contentElement.appendChild(imgElement);
+    console.log(imgElement);
+
+    const textElem = document.createElement('p');
+    textElem.textContent = dataInfo.attributes.synopsis;
+    contentElement.appendChild(textElem);
+  </script>
+
+<style>
+  .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+img {
+  width: 200px;
+}
+</style>
+
+</body>
+</html>
